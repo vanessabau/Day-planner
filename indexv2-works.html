@@ -27,48 +27,48 @@
   <div class="container time-block">
    
     <!-- TIME BLOCKS -->
-    <div  id="09" class="row">
-      <div data-num="09" class="col-2 hour">09:00AM</div>
+    <div id="09" class="row">
+      <div class="col-2 hour">09:00AM</div>
       <textarea id="textarea-09" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
-    <div  id="10" class="row">
-      <div data-num="10" class="col-2 hour">10:00AM</div>
+    <div id="10" class="row">
+      <div class="col-2 hour">10:00AM</div>
       <textarea id="textarea-10" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="11" class="row">
-      <div data-num="11" class="col-2 hour">11:00AM</div>
+      <div class="col-2 hour">11:00AM</div>
       <textarea id="textarea-11" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="12" class="row">
-      <div data-num="12" class="col-2 hour">12:00PM</div>
+      <div class="col-2 hour">12:00PM</div>
       <textarea id="textarea-12" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="13" class="row">
-      <div data-num="13" class="col-2 hour">01:00PM</div>
+      <div class="col-2 hour">01:00PM</div>
       <textarea id="textarea-13" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="14" class="row">
-      <div data-num="14" class="col-2 hour">02:00PM</div>
+      <div class="col-2 hour">02:00PM</div>
       <textarea id="textarea-14" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="15" class="row">
-      <div data-num="15" class="col-2 hour">03:00PM</div>
+      <div class="col-2 hour">03:00PM</div>
       <textarea id="textarea-15" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="16" class="row">
-      <div data-num="16" class="col-2 hour">04:00PM</div>
+      <div class="col-2 hour">04:00PM</div>
       <textarea id="textarea-16" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
     <div id="17" class="row">
-      <div data-num="17" class="col-2 hour">05:00PM</div>
+      <div class="col-2 hour">05:00PM</div>
       <textarea id="textarea-17" class="col">Textarea</textarea>
       <button class="col-2 saveBtn" type="submit">SAVE</button>
     </div>
@@ -93,19 +93,19 @@
 
       //CURRENT HOUR
       let currentHour = moment().format("HH");
+      //let currentHour = "10";
       console.log("current hour: " + currentHour);
-      
     
       //ASSIGN EACH ROW AN HOUR
-      var sibling09 = $("#textarea-09").siblings().attr("data-num");
-      var sibling10 = $("#textarea-10").siblings().attr("data-num");
-      var sibling11 = $("#textarea-11").siblings().attr("data-num");
-      var sibling12 = $("#textarea-12").siblings().attr("data-num");
-      var sibling13 = $("#textarea-13").siblings().attr("data-num");
-      var sibling14 = $("#textarea-14").siblings().attr("data-num");
-      var sibling15 = $("#textarea-15").siblings().attr("data-num");
-      var sibling16 = $("#textarea-16").siblings().attr("data-num");
-      var sibling17 = $("#textarea-17").siblings().attr("data-num");
+      var hourLabel09 = $("#textarea-09").parent().attr("id");
+      var hourLabel10 = $("#textarea-10").parent().attr("id");
+      var hourLabel11 = $("#textarea-11").parent().attr("id");
+      var hourLabel12 = $("#textarea-12").parent().attr("id");
+      var hourLabel13 = $("#textarea-13").parent().attr("id");
+      var hourLabel14 = $("#textarea-14").parent().attr("id");
+      var hourLabel15 = $("#textarea-15").parent().attr("id");
+      var hourLabel16 = $("#textarea-16").parent().attr("id");
+      var hourLabel17 = $("#textarea-17").parent().attr("id");
       
       //SAVE TEXT INPUT TO LOCAL STORAGE
       $("#09 #textarea-09").val(localStorage.getItem("09"));
@@ -131,12 +131,12 @@
       
       //COLOR CODE EACH TEXTAREA BY HOUR ////////////
       //09 HOUR
-      console.log(sibling09);
+      console.log(hourLabel09);
       console.log(currentHour);
-      if (sibling09 < currentHour) {
+      if (hourLabel09 < currentHour) {
         $("#textarea-09").addClass("past");
       }
-      else if (sibling09 == currentHour) {
+      else if (hourLabel09 == currentHour) {
         $("#textarea-09").addClass("present");
       }
       else {
@@ -144,12 +144,12 @@
       }
 
       //10 HOUR
-      console.log(sibling10);
+      console.log(hourLabel10);
       console.log(currentHour);
-      if (sibling10 < currentHour) {
+      if (hourLabel10 < currentHour) {
         $("#textarea-10").addClass("past");
       }
-      else if (sibling10 == currentHour) {
+      else if (hourLabel10 == currentHour) {
         $("#textarea-10").addClass("present");
       }
       else {
@@ -157,10 +157,10 @@
       }
 
       //11 HOUR
-      if (sibling11 < currentHour) {
+      if (hourLabel11 < currentHour) {
         $("#textarea-11").addClass("past");
       }
-      else if (sibling11 == currentHour) {
+      else if (hourLabel11 == currentHour) {
         $("#textarea-11").addClass("present");
       }
       else {
@@ -168,10 +168,10 @@
       }
 
       //12 HOUR
-      if (sibling12 < currentHour) {
+      if (hourLabel12 < currentHour) {
         $("#textarea-12").addClass("past");
       }
-      else if (sibling12 == currentHour) {
+      else if (hourLabel12 == currentHour) {
         $("#textarea-12").addClass("present");
       }
       else {
@@ -179,10 +179,10 @@
       }
 
       //13 HOUR
-      if (sibling13 < currentHour) {
+      if (hourLabel13 < currentHour) {
         $("#textarea-13").addClass("past");
       }
-      else if (sibling13 == currentHour) {
+      else if (hourLabel13 == currentHour) {
         $("#textarea-13").addClass("present");
       }
       else {
@@ -190,10 +190,10 @@
       }
 
       //14 HOUR
-      if (sibling14 < currentHour) {
+      if (hourLabel14 < currentHour) {
         $("#textarea-14").addClass("past");
       }
-      else if (sibling14 == currentHour) {
+      else if (hourLabel14 == currentHour) {
         $("#textarea-14").addClass("present");
       }
       else {
@@ -201,10 +201,10 @@
       }
 
       //15 HOUR
-      if (sibling15 < currentHour) {
+      if (hourLabel15 < currentHour) {
         $("#textarea-15").addClass("past");
       }
-      else if (sibling15 == currentHour) {
+      else if (hourLabel15 == currentHour) {
         $("#textarea-15").addClass("present");
       }
       else {
@@ -212,27 +212,38 @@
       }
 
       //16 HOUR
-      if (sibling16 < currentHour) {
+      if (hourLabel16 < currentHour) {
         $("#textarea-16").addClass("past");
       }
-      else if (sibling16 == currentHour) {
+      else if (hourLabel16 == currentHour) {
         $("#textarea-16").addClass("present");
       }
       else {
         $("#textarea-16").addClass("future");
       }
 
-      if (sibling17 < currentHour) {
+      if (hourLabel17 < currentHour) {
         $("#textarea-17").addClass("past");
       }
-      else if (sibling17 == currentHour) {
+      else if (hourLabel17 == currentHour) {
         $("#textarea-17").addClass("present");
       }
       else {
         $("#textarea-17").addClass("future");
       } 
 
-     
+      //TESTING DEBUGGING
+      console.log("currentHour: " +currentHour);
+      console.log("hourLabel09: " +hourLabel09);
+      console.log("hourLabel10: " +hourLabel10);
+      console.log("hourLabel11: " +hourLabel11);
+      console.log("hourLabel12: " +hourLabel11);
+      console.log("hourLabel13: " +hourLabel13);
+      console.log("hourLabel14: " +hourLabel14);
+      console.log("hourLabel15: " +hourLabel15);
+      console.log("hourLabel16: " +hourLabel16);
+      console.log("hourLabel17: " +hourLabel17);
+
     });
   </script>
 

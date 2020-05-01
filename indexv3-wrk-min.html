@@ -232,7 +232,40 @@
         $("#textarea-17").addClass("future");
       } 
 
-     
+      //TESTING DEBUGGING
+
+      //NEED FUNCTION TO LOOP THROUGH EACH DIV - IN PROGRESS - 
+      var dataSib = $("textarea").siblings().attr("data-num");
+      //var textSib = $("div").attr("data-num").siblings("textarea");
+      //Trying to target textarea via div sibling
+      function printSiblings(){
+        for(i=0; i<10; i++){
+          console.log(dataSib);
+        }
+      }
+      printSiblings();
+
+      //FUNCTION TO COMPARE EACH SIBLING PAIR TO CURRENT HOUR
+      /* if(dataSib < currentHour){
+        $(textSib).addClass("past");
+      }else if (dataSib==currentHour){
+        $(textSib).addClass("present");
+      }else {
+        $(textSib).addClass("future");
+      }
+
+      //MORE TEST/DEBUGGING
+      console.log("currentHour: " +currentHour);
+      console.log("sibling09: " +sibling09);
+      console.log("sibling10: " +sibling10);
+      console.log("sibling11: " +sibling11);
+      console.log("sibling12: " +sibling12);
+      console.log("sibling13: " +sibling13);
+      console.log("sibling14: " +sibling14);
+      console.log("sibling15: " +sibling15);
+      console.log("sibling16: " +sibling16);
+      console.log("sibling17: " +sibling17);
+      */
     });
   </script>
 

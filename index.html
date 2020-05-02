@@ -95,7 +95,6 @@
       let currentHour = moment().format("HH");
       console.log("current hour: " + currentHour);
       
-    
       //ASSIGN EACH ROW AN HOUR
       var sibling09 = $("#textarea-09").siblings().attr("data-num");
       var sibling10 = $("#textarea-10").siblings().attr("data-num");
@@ -130,9 +129,11 @@
       })
       
       //COLOR CODE EACH TEXTAREA BY HOUR ////////////
-      //09 HOUR
+      //TESTING AND DEBUGGING
       console.log(sibling09);
       console.log(currentHour);
+
+      //09 HOUR
       if (sibling09 < currentHour) {
         $("#textarea-09").addClass("past");
       }
@@ -144,8 +145,6 @@
       }
 
       //10 HOUR
-      console.log(sibling10);
-      console.log(currentHour);
       if (sibling10 < currentHour) {
         $("#textarea-10").addClass("past");
       }
@@ -232,7 +231,7 @@
         $("#textarea-17").addClass("future");
       } 
 
-     
+      
     });
   </script>
 

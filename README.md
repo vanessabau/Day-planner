@@ -9,7 +9,8 @@ I began with items provided and looked through the existing html and css to util
 
 I started with the moment js functionality, then created basic styling, then build the user-functionality portion. The largest challenge has been attempting to minimize the repetition in my code. I was able to create a working daily planner pretty quickly, but have spent hours doing various attempts to create more general variables and functions that can work by looping through all the iterations of page elements (most notably those textareas!). 
 
-I have a version where each row is targeted individually. I am working on creating a loop for my text area to color code them via a loop rather than 9 if/else statements. 
+CHALLENGES
+Color coding in a concise manner was the largest chalenge. I had a version where each row was targeted individually but I really wanted to create a function to accomplish the task via a for-loop. I spent hours trying different versions that did not work, and finally the Instructor helped by showing how to concatenate the text area id to create variables which I was able to use in a loop (lines 148-160 in the index.html). This worked (yay!).
 
 
 PSEUDO CODE

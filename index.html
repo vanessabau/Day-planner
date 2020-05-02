@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--LINKS-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="./Assets/style.css" />
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  
   <title>Work Day Scheduler</title>
 </head>
 
@@ -93,19 +95,9 @@
 
       //CURRENT HOUR
       let currentHour = moment().format("HH");
+      //Degubbing
       console.log("current hour: " + currentHour);
-      
-      //ASSIGN EACH ROW AN HOUR
-      var sibling09 = $("#textarea-09").siblings().attr("data-num");
-      var sibling10 = $("#textarea-10").siblings().attr("data-num");
-      var sibling11 = $("#textarea-11").siblings().attr("data-num");
-      var sibling12 = $("#textarea-12").siblings().attr("data-num");
-      var sibling13 = $("#textarea-13").siblings().attr("data-num");
-      var sibling14 = $("#textarea-14").siblings().attr("data-num");
-      var sibling15 = $("#textarea-15").siblings().attr("data-num");
-      var sibling16 = $("#textarea-16").siblings().attr("data-num");
-      var sibling17 = $("#textarea-17").siblings().attr("data-num");
-      
+
       //SAVE TEXT INPUT TO LOCAL STORAGE
       $("#09 #textarea-09").val(localStorage.getItem("09"));
       $("#10 #textarea-10").val(localStorage.getItem("10"));
@@ -117,23 +109,32 @@
       $("#16 #textarea-16").val(localStorage.getItem("16"));
       $("#17 #textarea-17").val(localStorage.getItem("17"));
       
+      //ASSIGN EACH ROW AN HOUR
+      var sibling09 = $("#textarea-09").siblings().attr("data-num");
+      var sibling10 = $("#textarea-10").siblings().attr("data-num");
+      var sibling11 = $("#textarea-11").siblings().attr("data-num");
+      var sibling12 = $("#textarea-12").siblings().attr("data-num");
+      var sibling13 = $("#textarea-13").siblings().attr("data-num");
+      var sibling14 = $("#textarea-14").siblings().attr("data-num");
+      var sibling15 = $("#textarea-15").siblings().attr("data-num");
+      var sibling16 = $("#textarea-16").siblings().attr("data-num");
+      var sibling17 = $("#textarea-17").siblings().attr("data-num");
+
       //ONCLICK //////////////////////////////////
       //SAVE TEXTAREA INPUT TO LOCAL STORAGE 
       $(".saveBtn").on("click", function (e) {
         e.preventDefault();
         var textArea = $(this).siblings("textarea").val();
-        console.log(textArea);
         var hour = $(this).parent().attr("id");
-        console.log(hour);
         localStorage.setItem(hour, textArea);
-      })
-      
+      });
+
       //COLOR CODE EACH TEXTAREA BY HOUR ////////////
-      //TESTING AND DEBUGGING
+      //Testing
       console.log(sibling09);
       console.log(currentHour);
 
-      //09 HOUR
+      //COLOR CODING 09 HOUR 
       if (sibling09 < currentHour) {
         $("#textarea-09").addClass("past");
       }
@@ -144,94 +145,21 @@
         $("#textarea-09").addClass("future");
       }
 
-      //10 HOUR
-      if (sibling10 < currentHour) {
-        $("#textarea-10").addClass("past");
+      //COLOR CODING HOURS 10-17
+      for (var i = 10; i<18; i++){
+        var siblingId = "#textarea-" + i;
+        var sibling = $(siblingId).siblings().attr("data-num");
+        if (sibling < currentHour) {
+          $(siblingId).addClass("past");
+        }
+        else if (sibling == currentHour) {
+          $(siblingId).addClass("present");
+        }
+        else {
+          $(siblingId).addClass("future");
+        }
       }
-      else if (sibling10 == currentHour) {
-        $("#textarea-10").addClass("present");
-      }
-      else {
-        $("#textarea-10").addClass("future");
-      }
-
-      //11 HOUR
-      if (sibling11 < currentHour) {
-        $("#textarea-11").addClass("past");
-      }
-      else if (sibling11 == currentHour) {
-        $("#textarea-11").addClass("present");
-      }
-      else {
-        $("#textarea-11").addClass("future");
-      }
-
-      //12 HOUR
-      if (sibling12 < currentHour) {
-        $("#textarea-12").addClass("past");
-      }
-      else if (sibling12 == currentHour) {
-        $("#textarea-12").addClass("present");
-      }
-      else {
-        $("#textarea-12").addClass("future");
-      }
-
-      //13 HOUR
-      if (sibling13 < currentHour) {
-        $("#textarea-13").addClass("past");
-      }
-      else if (sibling13 == currentHour) {
-        $("#textarea-13").addClass("present");
-      }
-      else {
-        $("#textarea-13").addClass("future");
-      }
-
-      //14 HOUR
-      if (sibling14 < currentHour) {
-        $("#textarea-14").addClass("past");
-      }
-      else if (sibling14 == currentHour) {
-        $("#textarea-14").addClass("present");
-      }
-      else {
-        $("#textarea-14").addClass("future");
-      }
-
-      //15 HOUR
-      if (sibling15 < currentHour) {
-        $("#textarea-15").addClass("past");
-      }
-      else if (sibling15 == currentHour) {
-        $("#textarea-15").addClass("present");
-      }
-      else {
-        $("#textarea-15").addClass("future");
-      }
-
-      //16 HOUR
-      if (sibling16 < currentHour) {
-        $("#textarea-16").addClass("past");
-      }
-      else if (sibling16 == currentHour) {
-        $("#textarea-16").addClass("present");
-      }
-      else {
-        $("#textarea-16").addClass("future");
-      }
-
-      if (sibling17 < currentHour) {
-        $("#textarea-17").addClass("past");
-      }
-      else if (sibling17 == currentHour) {
-        $("#textarea-17").addClass("present");
-      }
-      else {
-        $("#textarea-17").addClass("future");
-      } 
-
-      
+ 
     });
   </script>
 
